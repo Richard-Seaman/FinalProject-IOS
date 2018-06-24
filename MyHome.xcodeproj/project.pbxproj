@@ -17,6 +17,7 @@
 		9B27926820DFC79400867BF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B27926720DFC79400867BF0 /* GoogleService-Info.plist */; };
 		9B27926A20DFCC8B00867BF0 /* SocketsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27926920DFCC8B00867BF0 /* SocketsVC.swift */; };
 		9B27926C20DFCDE200867BF0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27926B20DFCDE200867BF0 /* Constants.swift */; };
+		9B27926E20DFF5F300867BF0 /* RFSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27926D20DFF5F300867BF0 /* RFSocket.swift */; };
 		B447EC35F7819A3E14D09992 /* Pods_MyHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766F8C679AE9CBA9A698EE76 /* Pods_MyHome.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		9B27926720DFC79400867BF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9B27926920DFCC8B00867BF0 /* SocketsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketsVC.swift; sourceTree = "<group>"; };
 		9B27926B20DFCDE200867BF0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9B27926D20DFF5F300867BF0 /* RFSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFSocket.swift; sourceTree = "<group>"; };
 		D43F83D4CC87FB6A283EFB41 /* Pods-MyHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyHome/Pods-MyHome.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 				9B27925A20DF9EDE00867BF0 /* LaunchScreen.storyboard */,
 				9B27925D20DF9EDE00867BF0 /* Info.plist */,
 				9B27926720DFC79400867BF0 /* GoogleService-Info.plist */,
+				9B27926D20DFF5F300867BF0 /* RFSocket.swift */,
 			);
 			path = MyHome;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				9B27926620DFC6D500867BF0 /* SignInVC.swift in Sources */,
 				9B27925220DF9EDC00867BF0 /* FirstViewController.swift in Sources */,
 				9B27926A20DFCC8B00867BF0 /* SocketsVC.swift in Sources */,
+				9B27926E20DFF5F300867BF0 /* RFSocket.swift in Sources */,
 				9B27926C20DFCDE200867BF0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

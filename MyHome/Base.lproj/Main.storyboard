@@ -210,7 +210,7 @@
         <!--Sign InVC-->
         <scene sceneID="6uB-cE-TaT">
             <objects>
-                <viewController id="vH8-j6-Ivy" customClass="SignInVC" customModule="Cupboard_Culprit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vH8-j6-Ivy" customClass="SignInVC" customModule="MyHome" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sz7-Ta-OSd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
