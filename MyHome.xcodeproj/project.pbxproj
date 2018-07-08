@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9B27925020DF9EDC00867BF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27924F20DF9EDC00867BF0 /* AppDelegate.swift */; };
-		9B27925220DF9EDC00867BF0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27925120DF9EDC00867BF0 /* FirstViewController.swift */; };
-		9B27925420DF9EDC00867BF0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27925320DF9EDC00867BF0 /* SecondViewController.swift */; };
 		9B27925720DF9EDC00867BF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B27925520DF9EDC00867BF0 /* Main.storyboard */; };
 		9B27925920DF9EDE00867BF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B27925820DF9EDE00867BF0 /* Assets.xcassets */; };
 		9B27925C20DF9EDE00867BF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B27925A20DF9EDE00867BF0 /* LaunchScreen.storyboard */; };
@@ -18,6 +16,9 @@
 		9B27926A20DFCC8B00867BF0 /* SocketsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27926920DFCC8B00867BF0 /* SocketsVC.swift */; };
 		9B27926C20DFCDE200867BF0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27926B20DFCDE200867BF0 /* Constants.swift */; };
 		9B27926E20DFF5F300867BF0 /* RFSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27926D20DFF5F300867BF0 /* RFSocket.swift */; };
+		9BD96FB220F167B800CFF245 /* SensorSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD96FB120F167B800CFF245 /* SensorSelectorVC.swift */; };
+		9BD96FB420F168C800CFF245 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD96FB320F168C800CFF245 /* Sensor.swift */; };
+		9BD96FB620F172B600CFF245 /* SensorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD96FB520F172B600CFF245 /* SensorVC.swift */; };
 		B447EC35F7819A3E14D09992 /* Pods_MyHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766F8C679AE9CBA9A698EE76 /* Pods_MyHome.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,8 +27,6 @@
 		766F8C679AE9CBA9A698EE76 /* Pods_MyHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B27924C20DF9EDC00867BF0 /* MyHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B27924F20DF9EDC00867BF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9B27925120DF9EDC00867BF0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		9B27925320DF9EDC00867BF0 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		9B27925620DF9EDC00867BF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B27925820DF9EDE00867BF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B27925B20DF9EDE00867BF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +36,9 @@
 		9B27926920DFCC8B00867BF0 /* SocketsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketsVC.swift; sourceTree = "<group>"; };
 		9B27926B20DFCDE200867BF0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9B27926D20DFF5F300867BF0 /* RFSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFSocket.swift; sourceTree = "<group>"; };
+		9BD96FB120F167B800CFF245 /* SensorSelectorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorSelectorVC.swift; sourceTree = "<group>"; };
+		9BD96FB320F168C800CFF245 /* Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
+		9BD96FB520F172B600CFF245 /* SensorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorVC.swift; sourceTree = "<group>"; };
 		D43F83D4CC87FB6A283EFB41 /* Pods-MyHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyHome/Pods-MyHome.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,18 +85,35 @@
 			children = (
 				9B27926B20DFCDE200867BF0 /* Constants.swift */,
 				9B27924F20DF9EDC00867BF0 /* AppDelegate.swift */,
-				9B27925120DF9EDC00867BF0 /* FirstViewController.swift */,
-				9B27925320DF9EDC00867BF0 /* SecondViewController.swift */,
-				9B27926520DFC6D500867BF0 /* SignInVC.swift */,
-				9B27926920DFCC8B00867BF0 /* SocketsVC.swift */,
+				9BA324D320F1797700AE35C6 /* VCs */,
+				9BA324D220F1794F00AE35C6 /* Objects */,
 				9B27925520DF9EDC00867BF0 /* Main.storyboard */,
 				9B27925820DF9EDE00867BF0 /* Assets.xcassets */,
 				9B27925A20DF9EDE00867BF0 /* LaunchScreen.storyboard */,
 				9B27925D20DF9EDE00867BF0 /* Info.plist */,
 				9B27926720DFC79400867BF0 /* GoogleService-Info.plist */,
-				9B27926D20DFF5F300867BF0 /* RFSocket.swift */,
 			);
 			path = MyHome;
+			sourceTree = "<group>";
+		};
+		9BA324D220F1794F00AE35C6 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				9B27926D20DFF5F300867BF0 /* RFSocket.swift */,
+				9BD96FB320F168C800CFF245 /* Sensor.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		9BA324D320F1797700AE35C6 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				9B27926520DFC6D500867BF0 /* SignInVC.swift */,
+				9B27926920DFCC8B00867BF0 /* SocketsVC.swift */,
+				9BD96FB120F167B800CFF245 /* SensorSelectorVC.swift */,
+				9BD96FB520F172B600CFF245 /* SensorVC.swift */,
+			);
+			path = VCs;
 			sourceTree = "<group>";
 		};
 		BE939BB06FD0938441C0ED2B /* Pods */ = {
@@ -229,12 +248,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B27925420DF9EDC00867BF0 /* SecondViewController.swift in Sources */,
 				9B27925020DF9EDC00867BF0 /* AppDelegate.swift in Sources */,
 				9B27926620DFC6D500867BF0 /* SignInVC.swift in Sources */,
-				9B27925220DF9EDC00867BF0 /* FirstViewController.swift in Sources */,
+				9BD96FB420F168C800CFF245 /* Sensor.swift in Sources */,
 				9B27926A20DFCC8B00867BF0 /* SocketsVC.swift in Sources */,
+				9BD96FB220F167B800CFF245 /* SensorSelectorVC.swift in Sources */,
 				9B27926E20DFF5F300867BF0 /* RFSocket.swift in Sources */,
+				9BD96FB620F172B600CFF245 /* SensorVC.swift in Sources */,
 				9B27926C20DFCDE200867BF0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
