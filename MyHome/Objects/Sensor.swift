@@ -41,6 +41,17 @@ class Sensor: NSObject {
         
     }
     
+    func getUnitForKey(key:String) -> String {
+        if let dataKeys = self.dataKeys {
+            if let index = dataKeys.index(of: key) {
+                if let dataUnits = self.dataUnits {
+                    return dataUnits[index]
+                }
+            }
+        }
+        return ""
+    }
+    
     func toString() -> String {
         return "{key:\(key), display:\(String(describing: display)), location:\(String(describing: location))}"
     }

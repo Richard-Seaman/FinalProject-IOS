@@ -70,11 +70,11 @@ class SensorSelectorVC: UIViewController, UITableViewDataSource, UITableViewDele
                     self.sensors.removeAll()
                     
                     // Extract each of the individual dictionaries
-                    // Check all keys (non sockets can be handled)
+                    // Check all keys (non sesnor meta data can be handled)
                     for key in stringKeys {
                         // Try to cast the value as another dictionary
                         if let metaDict = sensorMeta[key] as? NSDictionary {
-                            // if successful, try to get the value of the status key
+                            // if successful, try to get the value of the display key
                             if let display:String = metaDict["display"] as? String {
                                 // If found, this indicates it's a meta dictionary
                                 // Get the info and create sensor object
@@ -86,7 +86,7 @@ class SensorSelectorVC: UIViewController, UITableViewDataSource, UITableViewDele
                         }
                     }
                     
-                    // Sort the sockets by number
+                    // Sort the sockets by display
                     self.sensors.sort(by: self.sorterSensors)
                     
                 }
