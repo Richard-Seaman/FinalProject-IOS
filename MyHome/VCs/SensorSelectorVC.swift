@@ -39,7 +39,7 @@ class SensorSelectorVC: UIViewController, UITableViewDataSource, UITableViewDele
         super.viewDidLoad()
 
         // Set up nav bar
-        //self.navigationItem.titleView = getNavImageView(UIApplication.shared.statusBarOrientation)
+        self.navigationItem.titleView = getNavImageView(UIApplication.shared.statusBarOrientation)
         
         // Set up the loading view
         self.loadingView.backgroundColor = colourDefault

@@ -66,7 +66,7 @@ func getNavImageView(_ orientationToDisplayImageOn:UIInterfaceOrientation) -> UI
     
     let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: imageHeight, height: imageWidth))
     imageView.contentMode = .scaleAspectFit
-    let image = UIImage(named: "AppIcon")
+    let image = UIImage(named: "NavIcon")
     imageView.image = image
     
     if #available(iOS 11.0, *) {

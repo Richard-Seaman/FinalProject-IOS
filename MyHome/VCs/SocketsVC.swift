@@ -48,7 +48,7 @@ class SocketsVC: UIViewController, UITableViewDataSource, UITableViewDelegate  {
         super.viewDidLoad()
         
         // Set up nav bar
-        //self.navigationItem.titleView = getNavImageView(UIApplication.shared.statusBarOrientation)
+        self.navigationItem.titleView = getNavImageView(UIApplication.shared.statusBarOrientation)
         
         // Set up the loading view
         self.loadingView.backgroundColor = colourDefault

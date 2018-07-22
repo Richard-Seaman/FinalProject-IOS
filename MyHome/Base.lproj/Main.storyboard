@@ -469,7 +469,7 @@
         <scene sceneID="MHZ-ak-VEc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="47f-ZS-Ohs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Sockets" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Sockets" image="Socket" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QA5-3m-Zzh">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -488,7 +488,7 @@
         <scene sceneID="Sdx-Cz-gXt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A0S-Ah-TSm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Sensors" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Sensors" image="Sensors" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pEx-5Y-XUs">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -507,7 +507,7 @@
     <resources>
         <image name="NextArrowDark" width="33" height="33"/>
         <image name="PrevArrowDark" width="33" height="33"/>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="Sensors" width="30" height="30"/>
+        <image name="Socket" width="30" height="30"/>
     </resources>
 </document>
