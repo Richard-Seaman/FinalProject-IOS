@@ -36,7 +36,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's plugged in?" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EIi-OC-gJq">
+                                                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's plugged in?" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EIi-OC-gJq" customClass="TextFieldWithNum" customModule="MyHome" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="40.5" width="280" height="31.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -131,17 +131,18 @@
                         <constraints>
                             <constraint firstItem="fxK-v0-krN" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="8cX-nm-YtQ"/>
                             <constraint firstItem="fxK-v0-krN" firstAttribute="top" secondItem="2Vp-fK-Bf5" secondAttribute="top" id="CpV-s9-15h"/>
-                            <constraint firstItem="fxK-v0-krN" firstAttribute="bottom" secondItem="2Vp-fK-Bf5" secondAttribute="bottom" id="Ivq-xt-LjY"/>
                             <constraint firstItem="fxK-v0-krN" firstAttribute="trailing" secondItem="2Vp-fK-Bf5" secondAttribute="trailing" id="P8l-3Z-ieO"/>
                             <constraint firstItem="fxK-v0-krN" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="XtR-Yn-6An"/>
                             <constraint firstItem="fxK-v0-krN" firstAttribute="leading" secondItem="2Vp-fK-Bf5" secondAttribute="leading" id="jhh-dw-bc5"/>
                             <constraint firstItem="fxK-v0-krN" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="q0G-f1-4dI"/>
                             <constraint firstItem="fxK-v0-krN" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="qm3-1A-NBo"/>
+                            <constraint firstItem="2Vp-fK-Bf5" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="x1g-7P-f8o"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZDX-AB-Dzc"/>
                     <connections>
+                        <outlet property="keyboardHeightLayoutConstraint" destination="x1g-7P-f8o" id="UW1-uw-Jm1"/>
                         <outlet property="loadingIndicator" destination="cKR-kA-ef8" id="Tfz-IH-HFX"/>
                         <outlet property="loadingLabel" destination="vbB-fG-4Hm" id="BrC-bu-wJO"/>
                         <outlet property="loadingView" destination="fxK-v0-krN" id="OhV-ji-G3M"/>
@@ -167,7 +168,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SensorSelectorCell" rowHeight="83" id="eay-e8-tXC">
                                         <rect key="frame" x="0.0" y="28" width="375" height="83"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eay-e8-tXC" id="x0Y-DP-vfy">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="99" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eay-e8-tXC" id="x0Y-DP-vfy">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="82.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -177,7 +178,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where is the sensor?" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bYh-2Z-0dH">
+                                                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where is the sensor?" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bYh-2Z-0dH" customClass="TextFieldWithNum" customModule="MyHome" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="39.5" width="319" height="32.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -249,6 +250,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="qFg-X2-j1A"/>
                     <connections>
+                        <outlet property="keyboardHeightLayoutConstraint" destination="h4Y-mj-dlG" id="Wo7-Lx-EPv"/>
                         <outlet property="loadingIndicator" destination="pKm-uf-l0G" id="Wk2-BH-nra"/>
                         <outlet property="loadingLabel" destination="g1H-To-Df3" id="DDg-ON-ESd"/>
                         <outlet property="loadingView" destination="b9W-c3-GsT" id="rvd-aA-Osx"/>

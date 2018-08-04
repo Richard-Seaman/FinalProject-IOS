@@ -11,7 +11,7 @@ import Firebase
 import FirebaseDatabase
 import Foundation
 
-class SocketsVC: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+class SocketsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate  {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,6 +19,7 @@ class SocketsVC: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     @IBOutlet weak var loadingLabel: UILabel!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint?
     
     // Table Variables
     var tableViewController = UITableViewController()
@@ -44,8 +45,23 @@ class SocketsVC: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     // Firebase
     var ref: DatabaseReference!
     
+    // Textfields
+    var textFields:[TextFieldWithNum] = [TextFieldWithNum]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        dismissKeyboard(self)
+        refresh()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        dismissKeyboard(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Listen for keyboard notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(SocketsVC.keyboardNotification(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
         // Set up nav bar
         self.navigationItem.titleView = getNavImageView(UIApplication.shared.statusBarOrientation)
@@ -132,6 +148,7 @@ class SocketsVC: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     }
     
     func refresh() {
+        self.textFields = [TextFieldWithNum]()
         self.tableView.reloadData()
     }
     
@@ -154,25 +171,6 @@ class SocketsVC: UIViewController, UITableViewDataSource, UITableViewDelegate  {
         self.pushSocketStatus(socket: self.sockets[currentSwitch.tag])
         
     }
-    /*
-    func updateSocket(socket:RFSocket) {
-        
-        print("Updating Socket:")
-        print(socket.toString)
-        
-        // Update Firebase value
-        let socketDict = ["display": socket.display != nil ? socket.display! : "",
-                          "number": socket.number != nil ? socket.display! : "",
-                          "time_between_image_captures": self.timeImageCapture,
-                          "time_delay_before_picture": self.timeImageDelay,
-                          "time_between_display_updates": self.timeDisplayUpdate,
-                          "time_between_checks_background": self.timeBackgroundChecks]
-        
-        let childUpdates = ["config": configDict]
-        
-        ref.updateChildValues(childUpdates)
-        
-    }*/
     
     func pushSocketStatus(socket:RFSocket) {
         
@@ -246,6 +244,15 @@ class SocketsVC: UIViewController, UITableViewDataSource, UITableViewDelegate  {
                     dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
                     timeStr = dateFormatter.string(from: date)
                     
+                    // If it's been too long since a sync, don't show the options
+                    if (currentTime - lastSyncTime > 60 * 15) {
+                        self.loadingView.alpha = 1
+                        self.loadingLabel.text = "Last RPi Sync Time:\n\(timeStr)\n\nUI disabled until RPi syncs."
+                    } else {
+                        self.loadingView.alpha = 0
+                        self.loadingLabel.text = "Syncing..."
+                    }
+                    
                 }
                 
                 // Set the elements
@@ -267,7 +274,7 @@ class SocketsVC: UIViewController, UITableViewDataSource, UITableViewDelegate  {
             
             // Grab the elements using the tag
             let socketNumberLabel = cell.viewWithTag(2) as? UILabel
-            let socketDisplayTextField = cell.viewWithTag(3) as? UITextField
+            let socketDisplayTextField = cell.viewWithTag(3) as? TextFieldWithNum
             let socketStatusSwitch = cell.viewWithTag(4) as? UISwitch
             
             // Set the elements
@@ -282,9 +289,14 @@ class SocketsVC: UIViewController, UITableViewDataSource, UITableViewDelegate  {
             if let socketDisplayTextField = socketDisplayTextField {
                 if let socketDisplay = self.sockets[indexPath.row].display {
                     socketDisplayTextField.text = socketDisplay
+                    
                 } else {
                     socketDisplayTextField.text = ""
                 }
+                self.setupTextFieldInputAccessoryView(socketDisplayTextField)
+                socketDisplayTextField.number = indexPath.row
+                socketDisplayTextField.delegate = self
+                self.textFields.append(socketDisplayTextField)
             }
             
             if let socketStatusSwitch = socketStatusSwitch {
@@ -313,5 +325,71 @@ class SocketsVC: UIViewController, UITableViewDataSource, UITableViewDelegate  {
         
     }
     
+    
+    // MARK: - Keyboard Functions
+    
+    // Keyboard Move Screen Up If Required
+    @objc func keyboardNotification(_ notification: Notification) {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions().rawValue
+            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
+            UIView.animate(withDuration: duration,
+                           delay: TimeInterval(0),
+                           options: animationCurve,
+                           animations: { self.view.layoutIfNeeded() },
+                           completion: nil)
+        }
+    }
+    
+    @objc func dismissKeyboard(_ sender:AnyObject) {
+        print("dismissKeyboard")
+        for var index:Int in 0..<self.textFields.count {
+            textFields[index].resignFirstResponder()
+        }
+        self.keyboardHeightLayoutConstraint?.constant = 0
+    }
+    
+    func setupTextFieldInputAccessoryView(_ sender:UITextField) {
+        
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        doneToolbar.barStyle = UIBarStyle.blackTranslucent
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Apply", style: UIBarButtonItemStyle.done, target: self, action: #selector(SensorSelectorVC.applyButtonAction))
+        done.tintColor = UIColor.white
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        sender.inputAccessoryView = doneToolbar
+        
+    }
+    
+    @objc func applyButtonAction() {
+        self.dismissKeyboard(self)
+    }
+    
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if let textField = textField as? TextFieldWithNum {
+            if (textField.text != nil) {
+                print("Did finish editing: " + textField.text!)
+                self.sockets[textField.number].display = textField.text!
+                self.ref.child("sockets").child(self.sockets[textField.number].key).child("display").setValue(textField.text!)
+            } else {
+                print("Did finish editing: no text")
+                textField.text = self.sockets[textField.number].display
+            }
+        }
+    }
 
 }
